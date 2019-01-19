@@ -4,7 +4,7 @@ var API_KEY = "";
 //downloads information about the campus
 //callback is a function called after the response is received
 //give callback a parameter which will be the campus information
-function mapyst_campus(callback) {
+function NUMap(callback) {
 	params = {
 		api_key: API_KEY
 	};
@@ -14,7 +14,7 @@ function mapyst_campus(callback) {
 //returns a url which can be used to download a blueprint image
 //building is the index of the building according to the info in the campus info
 //floor is the index of the floor in the building according to the info in the campus info
-function mapyst_blueprint_url(building, floor) {
+function NUMap_blueprint_url(building, floor) {
 	return "blueprint api url?building=" + building + "&floor=" + floor + "&api_key=" + API_KEY;
 }
 
@@ -23,7 +23,7 @@ function mapyst_blueprint_url(building, floor) {
 //floor is the index of the floor in the building according to the info in the campus info
 //callback is a function called after the response is received
 //give callback a parameter which will be the blueprint image
-function mapyst_blueprint(building, floor, callback) {
+function NUMap_blueprint(building, floor, callback) {
 	params = {
 		building: building,
 		floor: floor,
@@ -40,7 +40,7 @@ function mapyst_blueprint(building, floor, callback) {
 //callback is a function called after the response is received
 //give callback a parameter which will be the route info
 //all variables should have a value, even if empty string
-function mapyst_route(start, end, search, prefs, callback) {
+function NUMap_route(start, end, search, prefs, callback) {
 	params = {
 		start: start,
 		end: end,
@@ -77,15 +77,15 @@ function mapyst_pointToLatLng(point) {
 //determines whether a direction is outside
 function mapyst_outsideDir(direction) {
 	var building = direction.end.buildingIndex;
-	return mapyst_outsideBuilding(campus, building);
+	return NUMap_outsideBuilding(campus, building);
 }
 
 //determines the building of a direction
-function mapyst_dirBuildingIndex(direction) {
+function NUMap_dirBuildingIndex(direction) {
 	return direction.end.buildingIndex;
 }
 
 //determines the floor of a direction
-function mapyst_dirFloorIndex(direction) {
+function NUMap_dirFloorIndex(direction) {
 	return direction.end.floorIndex;
 }
